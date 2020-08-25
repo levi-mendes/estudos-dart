@@ -1,27 +1,40 @@
 void main() {
-  var conta = ContaCorrente();
+  /*var conta = ContaCorrente();
   conta.titular = 'Levi';
   conta.agencia = 3282;
   conta.conta = 301;
-  conta.deposito(10000.0);
+  //conta.deposito(10000.0);
 
-  /*print('Saldo = ${conta.getSaldo()}');
+  print('Saldo = ${conta.getSaldo()}');
   print('Deposito = ${conta.deposito(500)}');
   print('Saque = ${conta.saque(200)}');
   print('Saldo = ${conta.getSaldo()}');*/
 
-  print('Saldo conta Origem ( Antes ) = ${conta.getSaldo()}');
+  var levi = Cliente();
+  levi.nome = 'Levi Mendes';
+  levi.cpf = '123.123.123.12';
+  levi.profissao = 'Programador';
 
-  var contaDestino = ContaCorrente();
-  print('Saldo conta Destino ( Antes ) = ${contaDestino.getSaldo()}');
-  conta.transferencia(35.0, contaDestino);
-  print('Saldo conta Destino ( Depois ) = ${contaDestino.getSaldo()}');
+  var rafaela = Cliente();
+  rafaela.nome = 'Rafaela Mendes';
+  rafaela.cpf = '456.456.456.45';
+  rafaela.profissao = 'Cabelereira';
 
-  print('Saldo conta Origem ( Depois ) = ${conta.getSaldo()}');
+  var contaLevi = ContaCorrente();
+  contaLevi.titular = levi;
+
+  var contaRafaela = ContaCorrente();
+  contaRafaela.titular = rafaela;
+
+  print('Saldo conta Origem ( Antes ) = ${contaLevi.getSaldo()}');
+  print('Saldo conta Destino ( Antes ) = ${contaRafaela.getSaldo()}');
+  contaLevi.transferencia(61.0, contaRafaela);
+  print('Saldo conta Destino ( Depois ) = ${contaRafaela.getSaldo()}');
+  print('Saldo conta Origem ( Depois ) = ${contaLevi.getSaldo()}');
 }
 
 class ContaCorrente {
-  String titular;
+  Cliente titular;
   int agencia;
   int conta;
   double _saldo = 50.0;
@@ -38,7 +51,7 @@ class ContaCorrente {
 
   bool transferencia(double valor, ContaCorrente contaDestino) {
     if (!temLimite(valor)) {
-      print('Saldo Insuficiente !');
+      print('\n---------- Saldo Insuficiente !!!!! -----------\n');
       return false;
     }
 
@@ -47,6 +60,8 @@ class ContaCorrente {
     return true;
   }
 
+  double valorChequeEspecial() => -10.0;
+
   double getSaldo() => _saldo;
 
   double deposito(double valor) {
@@ -54,10 +69,15 @@ class ContaCorrente {
     return _saldo;
   }
 
-  bool temLimite(double valor) => _saldo > valor;
+  bool temLimite(double valor) => _saldo >= (valor + valorChequeEspecial());
 
   @override
-  String toString() {
-    return 'Titular $titular \nAgencia $agencia \nConta $conta \nSaldo $_saldo';
-  }
+  String toString() =>
+      'Titular $titular \nAgencia $agencia \nConta $conta \nSaldo $_saldo';
+}
+
+class Cliente {
+  String nome;
+  String cpf;
+  String profissao;
 }
