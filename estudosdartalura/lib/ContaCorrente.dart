@@ -1,8 +1,13 @@
 import 'Cliente.dart';
 
 class ContaCorrente {
+  ContaCorrente(this._agencia, this.conta);
+
   Cliente titular;
-  int agencia;
+  int _agencia = 145;
+  int get agencia => _agencia;
+  set agencia(int novaAgencia) => _agencia = novaAgencia;
+
   int conta;
   double _saldo = 50.0;
 

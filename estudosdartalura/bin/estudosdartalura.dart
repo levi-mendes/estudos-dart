@@ -23,10 +23,10 @@ void main() {
     ..cpf = '456.456.456.45'
     ..profissao = 'Cabelereira';
 
-  var contaLevi = ContaCorrente();
+  var contaLevi = ContaCorrente(123, 1020);
   contaLevi.titular = levi;
 
-  var contaRafaela = ContaCorrente();
+  var contaRafaela = ContaCorrente(456, 3040);
   contaRafaela.titular = rafaela;
 
   print('Saldo conta Origem ( Antes ) = ${contaLevi.getSaldo()}');
