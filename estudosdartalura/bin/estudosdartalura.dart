@@ -13,15 +13,15 @@ void main() {
   print('Saque = ${conta.saque(200)}');
   print('Saldo = ${conta.getSaldo()}');*/
 
-  var levi = Cliente();
-  levi.nome = 'Levi Mendes';
-  levi.cpf = '123.123.123.12';
-  levi.profissao = 'Programador';
+  var levi = Cliente()
+    ..nome = 'Levi Mendes'
+    ..cpf = '123.123.123.12'
+    ..profissao = 'Programador';
 
-  var rafaela = Cliente();
-  rafaela.nome = 'Rafaela Mendes';
-  rafaela.cpf = '456.456.456.45';
-  rafaela.profissao = 'Cabelereira';
+  var rafaela = Cliente()
+    ..nome = 'Rafaela Mendes'
+    ..cpf = '456.456.456.45'
+    ..profissao = 'Cabelereira';
 
   var contaLevi = ContaCorrente();
   contaLevi.titular = levi;
