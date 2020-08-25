@@ -1,7 +1,11 @@
 import 'Cliente.dart';
 
 class ContaCorrente {
-  ContaCorrente(this._agencia, this.conta);
+  ContaCorrente(this._agencia, this.conta) {
+    totalDeContas++;
+  }
+
+  static int totalDeContas = 0;
 
   Cliente titular;
   int _agencia = 145;

@@ -2,17 +2,6 @@ import 'package:estudosdartalura/ContaCorrente.dart';
 import 'package:estudosdartalura/Cliente.dart';
 
 void main() {
-  /*var conta = ContaCorrente();
-  conta.titular = 'Levi';
-  conta.agencia = 3282;
-  conta.conta = 301;
-  //conta.deposito(10000.0);
-
-  print('Saldo = ${conta.getSaldo()}');
-  print('Deposito = ${conta.deposito(500)}');
-  print('Saque = ${conta.saque(200)}');
-  print('Saldo = ${conta.getSaldo()}');*/
-
   var levi = Cliente()
     ..nome = 'Levi Mendes'
     ..cpf = '123.123.123.12'
@@ -34,4 +23,5 @@ void main() {
   contaLevi.transferencia(61.0, contaRafaela);
   print('Saldo conta Destino ( Depois ) = ${contaRafaela.getSaldo()}');
   print('Saldo conta Origem ( Depois ) = ${contaLevi.getSaldo()}');
+  print('Total de contas = ${ContaCorrente.totalDeContas}');
 }
